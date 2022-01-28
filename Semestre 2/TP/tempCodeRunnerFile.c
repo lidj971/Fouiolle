@@ -1,0 +1,1 @@
+scanf("%c",&B.nom);
