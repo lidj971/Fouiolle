@@ -242,8 +242,7 @@ int Base10(char *s)
         return numDec(s);
     }else
     {
-        char * r = swap(s);
-        r[strlen(r)-1] = '1';
+        char * r = compA2(s);
         return -numDec(r);
     }
 }
