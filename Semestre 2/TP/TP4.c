@@ -178,6 +178,33 @@ int confondues(point A ,point B)
     }
 }
 
+int rectangle(point triangle[])
+{
+    point A = triangle[1];
+    point B = triangle[2];
+    point C = triangle[3];
+    
+    double sommeCar = pow(distance(A,B),2)+pow(distance(B,C),2);
+    double carHypo = pow(distance(A,C),2);
+    if(sommeCar == carHypo)
+    {
+        return TRUE
+    }
+    double sommeCar = pow(distance(A,C),2)+pow(distance(B,C),2);
+    double carHypo = pow(distance(A,B),2);
+    if(sommeCar == carHypo)
+    {
+        return TRUE
+    }
+    double sommeCar = pow(distance(A,B),2)+pow(distance(A,C),2);
+    double carHypo = pow(distance(B,C),2);
+    if(sommeCar == carHypo)
+    {
+        return TRUE
+    }
+    return FALSE
+}
+
 char *typeTriangle(point triangle[])
 {
     point A = triangle[1];
@@ -190,13 +217,13 @@ char *typeTriangle(point triangle[])
     if(distance(A,B) == distance(B,C) && distance(A,B) == distance(A,C))
     {
         return "equilateral";
-    }else if(distance(A,B) == distance(B,C) || distance(A,B) == distance(A,C) || distance(B,C) == distance(A,C) && sommeCar == carHypo)
+    }else if(distance(A,B) == distance(B,C) || distance(A,B) == distance(A,C) || distance(B,C) == distance(A,C) && rectangle(triangle) == TRUE)
     {
         return "rectangle isocele";
     }else if(distance(A,B) == distance(B,C) || distance(A,B) == distance(A,C) || distance(B,C) == distance(A,C))
     {
         return "isocele";
-    }else if(sommeCar == carHypo)
+    }else if(rectangle(triangle) == TRUE)
     {
         return "rectangle";
     }
